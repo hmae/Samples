@@ -1,11 +1,22 @@
 #! python
 
+# Feel Free to use this Script
+# But please if you have any notice .. dont hesitate and contact me any time.. 
+#                 [] CODER:>      hmae.py                 #
+
+
+# U have to install pickle and PIL libraries
+# pip install pillow
+# pip install pickle
+
 from tkinter import Tk, Button, Frame, Label, INSERT, Toplevel
 from tkinter.ttk import LabelFrame
 from tkinter import scrolledtext
+
 import pickle
 import time
 from PIL import Image, ImageTk
+
 class bar:
     def __init__(self, master):
         self.master = master
