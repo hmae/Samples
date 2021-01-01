@@ -1,0 +1,10 @@
+{
+    "foreground-color": "#ffffff",
+    "background-color": "#000080",
+    "font": "arial 8 bold",
+    "alpha-level": 0.71,
+    "ui-location": [
+        234,
+        209
+    ]
+}

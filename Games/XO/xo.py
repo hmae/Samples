@@ -1,3 +1,17 @@
+
+
+'''
+Actually Creating XO is very simple to be written in pygame.
+but for me i was trying to use pygame functions to understand its functionality.
+
+so have fun with xo ;D 
+
+by hmae
+'''
+import pygame
+from random import randint
+import time
+
 def create_screen(func_loop=0, title="Demo", size=(400,300),):
     ## Interface Creator 
     ## USAGE Interface("name", (800,600), MainMenu)
@@ -6,7 +20,6 @@ def create_screen(func_loop=0, title="Demo", size=(400,300),):
     Screen Size, >> Size ( width, height )
     Actions Loop as a Function, >> Loop of events
     """
-    import pygame
     ## Initialization
     pygame.init()
 
@@ -41,6 +54,7 @@ def reset(surface):
     surface.fill((30,30,30))
     grid(sc)
 def grid(surface):
+    'collection of numbers . coordinates many of points;;;;'
     #################
     ##   ##   ##   ##
     #################
@@ -48,7 +62,6 @@ def grid(surface):
     #################
     ##   ##   ##   ##
     #################
-    from random import randint
     c = [(100,200,200),(200,100,200),(200,200,100),(200,200,200),(100,100,100),
          (50,50,50),(50,100,50),(50,50,100),(100,50,100),(100,100,50)
          ]
@@ -63,6 +76,16 @@ def grid(surface):
     for pos in pos_list:
         rect = pygame.rect.Rect(pos,(50,50))
         pygame.draw.rect(surface , c[randint(0,len(c)-1)] , rect )
+    '''  . → HZ
+         ↓    
+         VR   |----|----|----|
+              |    |    |    |
+              |----|----|----|
+              |    |    |    |
+              |----|----|----|
+              |    |    |    |
+              |----|----|----|
+    '''
     # Hz
     pygame.draw.line(surface, red, (50,50) , (200,50), 2)
     pygame.draw.line(surface, red, (50,100) , (200,100), 2)
@@ -99,13 +122,11 @@ def Y(surface):
     x = img_surf
     return x
 
-import pygame
 create_screen(title="X_O",size=(250,250))
 grid(sc)
 update()
 
 def Play(surface):
-    import time
     clock = pygame.time.Clock()
     # rect positions (x_range,y_range)
     nine_rect_positions = {
