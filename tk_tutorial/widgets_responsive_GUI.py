@@ -123,9 +123,18 @@ textwidget_ind = tk.Label(sc, text="")
 textwidget_ind.place(relx=0.75, rely=1, relwidth=0.25, anchor="sw")
 # while writing ..
 def update(ev):
-    print(ev)
-    textwidget_ind.config(text="Line: {}    Col: {}".format(*textwidget.index("insert").split(".")))
+    if str(ev.type) == 'ButtonPress':
+        index = tk.CURRENT
+    elif str(ev.type) == 'KeyPress':
+        index = tk.INSERT
+    else:
+        print(ev.type)
+        index=tk.CURRENT
+    pos = textwidget.index(index).split(".")
+    textwidget_ind.config(text="Line: {}    Col: {}".format(*pos))
     textwidget_ind.update()
+    
+textwidget.bind("<ButtonPress-1>", update)
 textwidget.bind("<Key>", update)
 
 
