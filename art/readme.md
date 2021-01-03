@@ -1,4 +1,4 @@
-## numpyDrawnigs.py
+## numpyDrawings.py
 
 simple script to work on numpy 3d-array
 by modify it's values by color values
