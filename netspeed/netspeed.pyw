@@ -254,6 +254,8 @@ class temp_label:
         self.THREADED = False
         
 def SCROLL(ev):
+    # in case Linux , mousewheel event has a problem with delta .
+    # event will be pressbutton and checking num == 4 or 5 as scrolling event +up/-down
     V = ev.delta / 120 / 100
     current = getoptions()['alpha-level']
     new = current+V
