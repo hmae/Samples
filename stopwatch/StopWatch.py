@@ -9,8 +9,7 @@ good to control time that spend on tasks
 
 import tkinter as tk
 import time
-import tkinter as tk
-
+from tkinter import ttk
 from threading import Thread
 
 class window_location_adjustment:
@@ -110,7 +109,6 @@ rbtn = tk.Button(fr,
                 text='Reset', command=Reset)
 rbtn.place(x=w-180, y=115, relwidth=0.2)
 
-from tkinter import ttk
 style = ttk.Style()
 style.theme_use('default')
 style.configure('mystile.Vertical.TProgressbar', background='purple')
