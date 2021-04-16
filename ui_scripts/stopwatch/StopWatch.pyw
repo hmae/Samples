@@ -9,7 +9,8 @@ good to control time that spend on tasks
 
 import tkinter as tk
 import time
-from tkinter import ttk
+import tkinter as tk
+
 from threading import Thread
 
 class window_location_adjustment:
@@ -48,11 +49,12 @@ fg = '#ccc'
 
 win = tk.Tk()
 window_location_adjustment(win)
+win.wm_attributes('-alpha', 0.8)
 win.overrideredirect(1)
 w , h = 450, 150
 
-x = win.winfo_screenwidth() - 500
-y = win.winfo_screenheight() - 200
+x = win.winfo_screenwidth() - 660
+y = 20
 win.withdraw()
 win.geometry("{}x{}+{}+{}".format(w,h,x,y))
 win.resizable(False, False)
@@ -89,8 +91,8 @@ def ToggleButton():
         rbtn.configure(state=tk.DISABLED)
         
 def Reset():
-    STANDARDS['init'] = time.time()
-    STANDARDS['pause-time'] += STANDARDS['running-time']
+    STANDARDS['init'] = time.time()  
+    STANDARDS['pause-time'] += STANDARDS['running-time'] 
         
 btvar = tk.StringVar(win, value='Pause')
 pbt = tk.Button(fr,
@@ -109,6 +111,7 @@ rbtn = tk.Button(fr,
                 text='Reset', command=Reset)
 rbtn.place(x=w-180, y=115, relwidth=0.2)
 
+from tkinter import ttk
 style = ttk.Style()
 style.theme_use('default')
 style.configure('mystile.Vertical.TProgressbar', background='purple')
@@ -126,21 +129,22 @@ STANDARDS = {
     'pause':0,
     'pause-time':0,
     'init':time.time(),
-    'running-time': 0
+    'running-time': 0,
     }
 
 def timer(*vars):
     init = STANDARDS['init']
     while STANDARDS['cond']:
         now = time.time()-STANDARDS['pause-time']
-        runningtime = now - init 
+        runningtime = now - init
         STANDARDS['running-time'] = runningtime
         ms = 100*(runningtime - int(runningtime))
         sec = int(runningtime)
         mint = sec // 60
         hour = mint // 60
-        if mint >= 99:
-            win.geometry("{}x{}+{}+{}".format(w+160,h, win.winfo_screenwidth()-650, win.winfo_screenheight()-200))
+        if mint >= 60:
+
+            win.geometry("{}x{}".format(w+160,h))
             label2.place(x=w+40, y=50)
             if progressvisibility == 1:
                 PB.place(x=w+140, y=1)
@@ -148,7 +152,8 @@ def timer(*vars):
             vars[0].set('%-2.2d:%-2.2d:%2.2d'%(hour, mint%60, sec%60))
             vars[1].set('%-2.2d'%(ms))
         else:
-            win.geometry("{}x{}+{}+{}".format(w,h, win.winfo_screenwidth()-500, win.winfo_screenheight()-200))
+
+            win.geometry("{}x{}".format(w,h))
             label2.place(x=w-110, y=50)
             if progressvisibility == 1:
                 PB.place(x=w-20, y=1, height=148)
