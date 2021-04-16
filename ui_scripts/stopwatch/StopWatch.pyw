@@ -179,4 +179,6 @@ win.protocol("WM_DELETE_WINDOW", EXIT)
 Thread(target=timer, args=([v1,v2])).start()
 win.after(300, win.deiconify)
 win.mainloop()
+import sys
+sys.exit()
 
