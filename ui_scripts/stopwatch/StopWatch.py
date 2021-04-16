@@ -133,7 +133,7 @@ def timer(*vars):
     init = STANDARDS['init']
     while STANDARDS['cond']:
         now = time.time()-STANDARDS['pause-time']
-        runningtime = now - init + 1.661*60*59 + 55
+        runningtime = now - init 
         STANDARDS['running-time'] = runningtime
         ms = 100*(runningtime - int(runningtime))
         sec = int(runningtime)
