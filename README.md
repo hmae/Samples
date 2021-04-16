@@ -1,6 +1,5 @@
 
-
-<img src="https://komarev.com/ghpvc/?username=hmae&label=views%20%20%20%20%20%20%20%20%20%20%20%20&color=green"/>
+![](https://visitor-badge.laobi.icu/badge?page_id=hmae)
 
 ---
 ### this repository contains multiple personal works.
