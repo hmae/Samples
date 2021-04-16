@@ -1,10 +1,10 @@
 {
     "foreground-color": "#ffffff",
-    "background-color": "#000080",
+    "background-color": "#008080",
     "font": "arial 8 bold",
-    "alpha-level": 0.71,
+    "alpha-level": 0.72,
     "ui-location": [
-        234,
-        209
+        0,
+        0
     ]
 }

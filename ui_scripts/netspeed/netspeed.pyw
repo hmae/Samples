@@ -1,4 +1,4 @@
-#! python3.6
+#! python3.8
 
 import psutil, time
 from threading import Thread as Tr

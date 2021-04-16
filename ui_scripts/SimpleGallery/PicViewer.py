@@ -50,30 +50,23 @@ class main(tk.Tk):
             top_level.resizable(0,0)
             MSG = """
     Thank you for spending your time using my lil software !
-    Let me know where is my home and i will preview all photos there
-    Coded using Python [Tkinter]
     Codeder [ Hosam Mohamed Ali ]
 
-      facebook:  fb.com/hmae.py
-      linkedin:  linkedin.com/in/hosam-mohamed/
+
+
+  #---------------------------------------------------------------#
+
       github  :  github.com/hmae                    SCROLL FOR MORE
 
   #---------------------------------------------------------------#
-  # This software is simply for Photos  [jpg, jpeg, png]          #
-  # I Like controlling my PC ! so i used to make simple tools for #
-  # in home entry text you can type any directory                 #
-  # without any clicks just leave it by pressing 'TAP'            #
-  # Woops ! searching generator started ,, it is ready            #
-  # left top entry [ 10 ] , is a photo memory controller          #
-  # right top entry [ 1 ] , is a timer for iteration loop in secs #
-  # 'Previous - Next' buttons --> [<]  [>]                        #
-  # [pic?] , is to open the visible photo directory               #
+      this software in general to iterate over files
+      any picture occured will be shown
+      iterator depends on extensions . [ jpg , png , jpeg ] .
+      add more extensions to be loaded later .. your choice
   #---------------------------------------------------------------#
 
-  # > Hosam mohamed ali ,, is a Civil Engineer ,
-  #  coding is to make life easier and do things faster
+  #  code better , more features xD
 
-  # finding that team who has that motivation is a great deal for me.
   -------------------------------------------------------------------
     """
             top_level.title("Ozzaaai")
@@ -107,14 +100,14 @@ class main(tk.Tk):
         self.canvas = tk.Canvas(self, width=500, height=320, bg="#111")
 
         
-        self.ani = self.canvas.create_text(250, 160, fill="#FFF", font=("verdana",10), activefill="#4aa", text="Starting The Movie ")
+        self.ani = self.canvas.create_text(250, 160, fill="#FFF", font='verdana 22 bold', activefill="#4aa", text="Starting The Movie ")
         def animate():
             l = ['a','b',"c","d","e","f"]
             rand_color = "#{}{}{}".format(l[randint(0,len(l)-1)], l[randint(0,len(l)-1)],l[randint(0,len(l)-1)])
             while self.start == True:
-                time.sleep(.35)
                 rand_color = "#{}{}{}".format(l[randint(0,len(l)-1)], l[randint(0,len(l)-1)],l[randint(0,len(l)-1)])
                 self.canvas.itemconfig(self.ani, fill=rand_color)
+                time.sleep(.35)
             
             self.canvas.delete(self.ani)
 
@@ -189,7 +182,7 @@ class main(tk.Tk):
             if self.PICS == 0:  # if Loaded but nothing previewed !
                 # print("Oh nothing yet !")
                 self.canvas.delete("all")
-                self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", text="i am lost ! where is my home ! " )
+                self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", font='verdana 16 bold', text="i am lost ! where is my home ! " )
                 return
             # print("great next will be visible !")
             try:
@@ -228,7 +221,7 @@ class main(tk.Tk):
         if self.PICS == 0:  # Not started Yet
             self.canvas.delete("all")
             self.canvas.config(bg="#388")
-            self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", text="Give me home then i will be yours ~_^ " )
+            self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", font='verdana 16 bold',text="Give me home then i will be yours ~_^ " )
             return
         self.index -= 1
         if self.index < 0 and self.PICS != 0:  # Started but reached the Bottom
@@ -268,7 +261,7 @@ class main(tk.Tk):
         if not os.path.exists(path):
             self.canvas.delete("all")
             self.canvas.config(bg="#838")
-            self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", text="i am lost , where is my home :( " )
+            self.canvas.create_text( int(500/2), int(300/2), fill="#FFF", font='verdana 16 bold', text="i am lost , where is my home :( " )
             self.path.config(bg="orange")
             return
         else:
@@ -289,6 +282,8 @@ class main(tk.Tk):
 app = main()
 def do_exit():
     app.start = False
+    app.withdraw()
+    time.sleep(1)
     app.after(1, app.destroy)
 app.protocol("WM_DELETE_WINDOW", do_exit)
 app.mainloop()
