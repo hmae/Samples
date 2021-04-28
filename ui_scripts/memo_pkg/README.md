@@ -5,3 +5,5 @@ memo.exe require the other package files . it is not standalone executable file.
 Memo preview|
 ---|
 ![memo preview](https://github.com/hmae/Samples/raw/master/ui_scripts/memo_pkg/memopreview.gif)
+
+![](https://visitor-badge.laobi.icu/badge?page_id=hmae&)
