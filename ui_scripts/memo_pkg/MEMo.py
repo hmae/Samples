@@ -228,7 +228,7 @@ sc = Tk()
 w, h = 650, 420
 sc.geometry("{}x{}+{}+{}".format( w, h, int(sc.winfo_screenwidth()/2)- int(w/2) , int(sc.winfo_screenheight()/2) - int(h/2) ))
 sc.wm_attributes('-alpha', 0.96)
-sc.title(" MEMO      - we glad to remember what you need sire ^-^ -")
+sc.title(" MEMO      - we glad to remember what you need sir ^-^ -")
 sc.resizable(0,0)
 sc.config(bg="cyan3")
 sc.iconbitmap("memo.ico")
