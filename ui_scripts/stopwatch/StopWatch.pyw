@@ -9,10 +9,9 @@ good to control time that spend on tasks
 
 import tkinter as tk
 import time
-import tkinter as tk
 
 from threading import Thread
-
+from threading import Thread as Tr
 class window_location_adjustment:
     def __init__(self, window):
         self.window = window
@@ -131,7 +130,65 @@ STANDARDS = {
     'init':time.time(),
     'running-time': 0,
     }
+class temp_label:
+    def __init__(self, master):
+        self.master = master
+        self.variable = tk.Variable()
+        self.label = tk.Label(master, textvariable=self.variable, bg=bg, fg=fg, font='arial 8 bold', relief='solid')
+        self._timerout = 0.5
+        self.THREADED = False
+    def text(self, text):
+        self.label.config(bg=bg, fg=fg)
+        self.label.place(relx=1, rely=1, anchor='se')
+        self.variable.set(round(text,3))
+        self._timer = self._timerout
+        if not self.THREADED:
+            obj = Tr(target=self._timeout)
+            obj.start()
 
+    def _timeout(self):
+        avail = True
+        while avail:
+            self.THREADED = True
+            self._timer -= 0.01
+            time.sleep(0.01)
+            if self._timer <= 0:
+                avail = False
+        self.label.place_forget()
+        self.THREADED = False
+current = 0.8
+def SCROLL(ev):
+    # in case Linux , mousewheel event has a problem with delta .
+    # event will be pressbutton and checking num == 4 or 5 as scrolling event +up/-down
+    V = ev.delta / 120 / 100
+    global current
+    new = current+V
+    
+    temp.text(new)
+    if new <= .15:
+        return
+    if new >= 1.05:
+        return
+    current = new
+    win.attributes("-alpha", new)
+temp = temp_label(win)
+win.bind("<MouseWheel>",SCROLL)
+from tkinter import colorchooser
+def colorify(ev, *kwargs):
+
+    f = colorchooser.askcolor()
+    if not isinstance(f[1] , type(None)):
+        rgb = (abs(f[0][0]-32),abs(f[0][1]-32),abs(f[0][1]-32))
+        h0x = (hex(int(rgb[0])),hex(int(rgb[1])),hex(int(rgb[2])))
+        new = '#' + ''.join(h0x).replace('0x','')
+        for gr in kwargs:
+            if ev.widget in gr:
+                list(map(lambda wid: wid.config(bg=f[-1]), gr))
+##        for i in widgets:
+##            i.config(bg=f[1])
+##        for ii in btns:
+##            ii.config(bg=new)
+##        
 def timer(*vars):
     init = STANDARDS['init']
     while STANDARDS['cond']:
@@ -177,6 +234,7 @@ win.bind('<q>', EXIT)
 win.protocol("WM_DELETE_WINDOW", EXIT)
 
 Thread(target=timer, args=([v1,v2])).start()
+win.bind("<ButtonRelease-3>", lambda ev: colorify(ev, [label1, label2, fr], [pbt], [rbtn]))
 win.after(300, win.deiconify)
 win.mainloop()
 import sys
