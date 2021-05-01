@@ -6,4 +6,4 @@ Memo preview|
 ---|
 ![memo preview](https://github.com/hmae/Samples/raw/master/ui_scripts/memo_pkg/memopreview.gif)
 
-![](https://visitor-badge.laobi.icu/badge?page_id=hmae&)
+![](https://visitor-badge.laobi.icu/badge?page_id=hmae/ui_scripts/memo_pkg&)
