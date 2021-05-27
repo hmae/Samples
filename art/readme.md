@@ -1,5 +1,4 @@
-## numpyDrawings.py
-
+# customize pixels throw numpy
 simple script to work on numpy 3d-array
 by modify it's values by color values
 
