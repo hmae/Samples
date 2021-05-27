@@ -6,7 +6,7 @@
 import numpy as np
 import cv2
 import math
-def show(img, wid='id'):
+def show(img, wid='pixel coloring @hmae'):
     if isinstance(img, str):
         cv2.imshow(wid, cv2.imread(img))
     elif isinstance(img, type(np.array([]))):
