@@ -7,5 +7,5 @@
 have fun . dont wast time xD
 
 | Stopwatch
-| :---:|
+| :---:
 | ![preview gif](stopwatchpreview.gif)
