@@ -103,15 +103,18 @@ class window_location_adjustment:
         self.get = False
         self.m_pos = (0,0)
         self.location = [0,0]
-    def action(self, ev):
-        if ev.state == 256:
-            if self.get == False:
-                self.m_pos = (ev.x, ev.y)
-            self.get = True
-            self.move(ev)
-            
+    def action(self, ev, state):
+        if state == 'hold':
+            ev.widget.bind("<Motion>", self.action2)
         else:
+            ev.widget.unbind("<Motion>")
             self.get = False
+            
+    def action2(self, ev):
+        if self.get == False:
+            self.m_pos = (ev.x, ev.y)
+        self.get = True
+        self.move(ev)
     def move(self, ev):
         geo, locx, locy = self.window.winfo_geometry().split("+")
         
@@ -374,7 +377,8 @@ Lup.grid(row=3, column=0, columnspan=2)
 
 subwin.bind("<q>", doExit)
 LOCATIONADJUSTMENT = window_location_adjustment(subwin)
-subwin.bind("<Motion>", LOCATIONADJUSTMENT.action)
+subwin.bind("<ButtonPress-1>", lambda ev: LOCATIONADJUSTMENT.action(ev, 'hold'))
+subwin.bind("<ButtonRelease-1>", lambda ev: LOCATIONADJUSTMENT.action(ev, 'naaa'))
 
 Tr1 = True
 obj = Tr(target=Thread1)
