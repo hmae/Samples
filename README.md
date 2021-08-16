@@ -6,7 +6,7 @@
 #### this repository contains multiple personal works.
 
 # Civil Engineering 
-* [SieveTest particular diameter](https://github.com/hmae/sievetest)
+* [Sieve Analysis Test (particles diameter)](https://github.com/hmae/sievetest)
 
 # Programming 
 * [xo](https://github.com/hmae/Samples/tree/master/Games/XO)**,** [stopwatch](https://github.com/hmae/Samples/tree/master/ui_scripts/stopwatch)**,** [netspeed indicator](https://github.com/hmae/Samples/tree/master/ui_scripts/netspeed) **,** [picture viewer](https://github.com/hmae/Samples/tree/master/ui_scripts/SimpleGallery)**,** [custom notpad](https://github.com/hmae/Samples/tree/master/ui_scripts/memo_pkg) **,** [tkinter table](https://github.com/hmae/Samples/tree/master/ui_scripts/tkinterTable)**,** [Numpy Colorful Boxes xD](https://github.com/hmae/Samples/tree/master/art) 
